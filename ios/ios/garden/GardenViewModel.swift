@@ -14,7 +14,7 @@ extension GardenScreen {
         
         private let viewModel: SharedGardenViewModel
         
-        @Published var state: GardenUiState = GardenUiStateLoading()
+        @Published var state: GardenUiState = GardenUiState.Loading()
         
         private var handle: DisposableHandle?
         
@@ -28,6 +28,7 @@ extension GardenScreen {
                     self.state = state
                 }
             }) as? DisposableHandle
+            //TODO: Fix handle dispose
         }
         
         // Removes the listener

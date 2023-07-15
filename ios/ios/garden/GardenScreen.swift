@@ -11,13 +11,17 @@ import SwiftUI
 struct GardenScreen: View {
     
     @ObservedObject var viewModel: GardenViewModel
-       
-       init() {
-           self.viewModel = GardenViewModel()
-       }
+    
+    init() {
+        self.viewModel = GardenViewModel()
+    }
     
     var body: some View {
-        Text("Hi")
+        VStack {
+            Spacer()
+            Text(viewModel.state.titleState.text)
+            Spacer()
+        }
         .onAppear {
             viewModel.startObserving()
         }

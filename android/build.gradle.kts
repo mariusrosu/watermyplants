@@ -41,12 +41,26 @@ android {
 dependencies {
     implementation(project(":shared"))
 
-    // Jetpack compose
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.activity:activity-compose:1.7.2")
-    implementation("androidx.compose.material3:material3:1.1.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    // Jetpack compose UI
+    val composeUiVersion = "1.4.3"
+    implementation("androidx.compose.ui:ui:$composeUiVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeUiVersion")
+    implementation("androidx.compose.ui:ui-tooling-preview:$composeUiVersion")
+    implementation("androidx.compose.foundation:foundation:$composeUiVersion")
+
+    // Jetpack compose activity
+    val composeActivityVersion = "1.7.2"
+    implementation("androidx.activity:activity-compose:$composeActivityVersion")
+
+    // Jetpack compose view model
+    val composeViewModelVersion = "2.6.1"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$composeViewModelVersion")
+
+    // Jetpack compose navigation
+    val composeNavigationVersion = "2.6.0"
+    implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
+
+    // Jetpack compose Material3
+    val composeMaterialVersion = "1.1.1"
+    implementation("androidx.compose.material3:material3:$composeMaterialVersion")
 }

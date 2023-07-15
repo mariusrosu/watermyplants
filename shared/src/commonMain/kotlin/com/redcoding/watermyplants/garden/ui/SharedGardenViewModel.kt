@@ -1,8 +1,6 @@
 package com.redcoding.watermyplants.garden.ui
 
-import com.redcoding.watermyplants.garden.ui.GardenUiState
 import com.redcoding.watermyplants.garden.domain.GetGardenStateEntryPoint
-import com.redcoding.watermyplants.uilibrary.components.TitleState
 import com.redcoding.watermyplants.util.toCommonStateFlow
 
 import kotlinx.coroutines.CoroutineScope

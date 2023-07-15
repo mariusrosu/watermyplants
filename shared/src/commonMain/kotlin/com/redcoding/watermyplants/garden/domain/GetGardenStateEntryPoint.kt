@@ -3,7 +3,6 @@ package com.redcoding.watermyplants.garden.domain
 import com.redcoding.watermyplants.garden.data.DummyGardenDataSource
 import com.redcoding.watermyplants.garden.ui.GardenUiState
 import com.redcoding.watermyplants.uilibrary.components.CheckBoxTextState
-import com.redcoding.watermyplants.uilibrary.components.TitleState
 import kotlinx.coroutines.flow.map
 
 class GetGardenStateEntryPoint {
@@ -14,7 +13,6 @@ class GetGardenStateEntryPoint {
 }
 
 private fun List<Plant>.toUiState() = GardenUiState.Content(
-    titleState = TitleState("Salut Diana!"),
     plantStates = map { it.toUiState() },
 )
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
@@ -13,8 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.redcoding.watermyplants.android.uilibrary.theme.Theme
 import com.redcoding.watermyplants.android.uilibrary.foundations.BodyText
-import com.redcoding.watermyplants.android.uilibrary.foundations.CheckBox
-import com.redcoding.watermyplants.android.uilibrary.foundations.CheckBoxState
+import com.redcoding.watermyplants.uilibrary.components.CheckBoxTextState
 
 @Composable
 fun CheckBoxText(state: CheckBoxTextState) {
@@ -25,9 +25,9 @@ fun CheckBoxText(state: CheckBoxTextState) {
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
-        CheckBox(
-            state = state.checkBoxState,
-            listener = {},
+        Checkbox(
+            checked = state.isChecked,
+            onCheckedChange = null,
         )
         BodyText(
             text = state.text,
@@ -36,18 +36,12 @@ fun CheckBoxText(state: CheckBoxTextState) {
     }
 }
 
-@Immutable
-data class CheckBoxTextState(
-    val checkBoxState: CheckBoxState,
-    val text: String,
-)
-
 // region CheckBoxText Previews
 @Preview
 @Composable
 fun CheckBoxTextCheckedPreview() {
     val state = CheckBoxTextState(
-        checkBoxState = CheckBoxState(isChecked = true),
+        isChecked = true,
         text = "Checked Check Box Text"
     )
     Theme {
@@ -59,7 +53,7 @@ fun CheckBoxTextCheckedPreview() {
 @Composable
 fun CheckBoxTextUncheckedPreview() {
     val state = CheckBoxTextState(
-        checkBoxState = CheckBoxState(isChecked = false),
+        isChecked = false,
         text = "Unchecked Check Box Text"
     )
     Theme {

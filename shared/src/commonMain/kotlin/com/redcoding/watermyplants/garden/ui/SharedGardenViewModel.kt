@@ -1,30 +1,28 @@
 package com.redcoding.watermyplants.garden.ui
 
-import com.redcoding.watermyplants.garden.data.DummyGardenDataSource
-import com.redcoding.watermyplants.garden.domain.GardenDataSource
-import com.redcoding.watermyplants.garden.domain.Plant
+import com.redcoding.watermyplants.garden.ui.GardenUiState
+import com.redcoding.watermyplants.garden.domain.GetGardenStateEntryPoint
+import com.redcoding.watermyplants.uilibrary.components.TitleState
+import com.redcoding.watermyplants.util.toCommonStateFlow
 
-import com.rickclephas.kmm.viewmodel.KMMViewModel
-import com.rickclephas.kmm.viewmodel.stateIn
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
-class SharedGardenViewModel : KMMViewModel() {
+class SharedGardenViewModel(
+    coroutineScope: CoroutineScope? = null
+) {
+    private val viewModelScope = coroutineScope ?: CoroutineScope(Dispatchers.Main)
 
-    private val dataSource: GardenDataSource = DummyGardenDataSource()
+    private val getGardenStateEntryPoint: GetGardenStateEntryPoint = GetGardenStateEntryPoint()
 
-    val uiState = dataSource.getPlants().map { plants ->
-        UiState(plants)
-    }.stateIn(
-        viewModelScope = viewModelScope,
-        // TODO: Check state in started
-        started = SharingStarted.Eagerly,
-        initialValue = UiState(plants = emptyList()),
-    )
+    val state = getGardenStateEntryPoint()
+        .stateIn(
+            scope = viewModelScope,
+            // TODO: Check state in started
+            started = SharingStarted.Eagerly,
+            initialValue = GardenUiState.Loading,
+        )
+        .toCommonStateFlow()
 }
-
-data class UiState(
-    // TODO: Make this stable
-    val plants: List<Plant>
-)

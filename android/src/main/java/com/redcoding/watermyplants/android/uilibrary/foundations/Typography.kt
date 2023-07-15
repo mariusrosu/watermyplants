@@ -19,23 +19,23 @@ import com.redcoding.watermyplants.android.uilibrary.theme.h4Bold
 import com.redcoding.watermyplants.android.uilibrary.theme.largeBold
 
 @Composable
-fun TitleText(text: String, modifier: Modifier = Modifier, maxLines: Int = Int.MAX_VALUE) {
+internal fun TitleText(text: String, modifier: Modifier = Modifier, maxLines: Int = Int.MAX_VALUE) {
     Text(
         text = text,
         modifier = modifier,
         style = extraLarge,
         textAlign = TextAlign.Center,
-        maxLines = maxLines
+        maxLines = maxLines,
     )
 }
 
 @Composable
-fun BodyText(text: String, modifier: Modifier = Modifier, maxLines: Int = Int.MAX_VALUE) {
+internal fun BodyText(text: String, modifier: Modifier = Modifier, maxLines: Int = Int.MAX_VALUE) {
     Text(
         text = text,
         modifier = modifier,
         style = body,
         textAlign = TextAlign.Start,
-        maxLines = maxLines
+        maxLines = maxLines,
     )
 }

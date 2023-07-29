@@ -2,6 +2,7 @@ package com.redcoding.watermyplants.garden.domain
 
 import com.redcoding.watermyplants.garden.ui.GardenUiState
 import com.redcoding.watermyplants.uilibrary.components.CheckBoxTextState
+
 import kotlinx.coroutines.flow.map
 
 class GetGardenStateEntryPoint(
@@ -12,7 +13,7 @@ class GetGardenStateEntryPoint(
 }
 
 private fun List<Plant>.toUiState() = GardenUiState.Content(
-    plantStates = map { it.toUiState() },
+    plantStates = map(Plant::toUiState)
 )
 
 private fun Plant.toUiState() = CheckBoxTextState(isChecked = true, text = name)

@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class DummyGardenDataSource : GardenDataSource {
+internal class DummyGardenDataSource : GardenDataSource {
 
     private val plants = mutableListOf(
         Plant(id = 1, name = "Fist plant"),

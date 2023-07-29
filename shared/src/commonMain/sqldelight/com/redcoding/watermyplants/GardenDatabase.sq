@@ -4,13 +4,17 @@ CREATE TABLE PlantEntity (
 );
 
 selectAll:
-SELECT * FROM PlantEntity ORDER BY id;
+SELECT * FROM PlantEntity
+ORDER BY id;
 
 selectById:
-SELECT * FROM PlantEntity WHERE id = ?;
+SELECT * FROM PlantEntity
+WHERE id = ?;
 
 insertItem:
-INSERT OR REPLACE INTO PlantEntity (id, name) VALUES (id = ?, name = ?);
+INSERT OR IGNORE INTO PlantEntity(name)
+VALUES (?);
 
 deleteById:
-DELETE FROM PlantEntity WHERE id = ?;
+DELETE FROM PlantEntity
+WHERE id = ?;

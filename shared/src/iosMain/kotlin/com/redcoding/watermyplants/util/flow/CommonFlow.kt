@@ -1,12 +1,8 @@
-@file:OptIn(DelicateCoroutinesApi::class)
-
-package com.redcoding.watermyplants.util
+package com.redcoding.watermyplants.util.flow
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.DisposableHandle
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -20,7 +16,7 @@ actual open class CommonFlow<T> actual constructor(
         coroutineScope: CoroutineScope,
         dispatcher: CoroutineDispatcher,
         onCollect: (T) -> Unit
-    ): DisposableHandle {
+    ): kotlinx.coroutines.DisposableHandle {
         val job = coroutineScope.launch(dispatcher) {
             flow.collect(onCollect)
         }
@@ -30,7 +26,7 @@ actual open class CommonFlow<T> actual constructor(
     // Shorthand for the first method
     fun subscribe(
         onCollect: (T) -> Unit
-    ): DisposableHandle {
+    ): kotlinx.coroutines.DisposableHandle {
         return subscribe(
             coroutineScope = GlobalScope,
             dispatcher = Dispatchers.Main,

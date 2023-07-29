@@ -1,4 +1,4 @@
-package com.redcoding.watermyplants.util
+package com.redcoding.watermyplants.util.flow
 
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.StateFlow

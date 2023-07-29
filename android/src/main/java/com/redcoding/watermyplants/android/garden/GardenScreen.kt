@@ -8,12 +8,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 import com.redcoding.watermyplants.android.uilibrary.components.CheckBoxText
 import com.redcoding.watermyplants.android.uilibrary.components.Page
 import com.redcoding.watermyplants.android.uilibrary.components.Title
+import com.redcoding.watermyplants.garden.ui.GardenUiAction
 import com.redcoding.watermyplants.garden.ui.GardenUiState
 
 import org.koin.androidx.compose.koinViewModel
@@ -21,12 +23,12 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 internal fun GardenScreen(
     viewModel: GardenViewModel = koinViewModel(),
-    onPlantDetailsClicked: () -> Unit,
+    //onPlantDetailsClicked: () -> Unit,
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState().collectAsState()
     GardenScreen(
         uiState = uiState,
-        onPlantDetailsClicked = onPlantDetailsClicked,
+        onPlantDetailsClicked = remember { { viewModel.onUiAction(GardenUiAction.AddPlantClicked) } },
     )
 }
 
@@ -77,6 +79,6 @@ private fun LazyListScope.emptySection(uiState: GardenUiState.Empty) {
 @Preview
 @Composable
 internal fun GardenScreenPreview() {
-    GardenScreen(onPlantDetailsClicked = {})
+    //GardenScreen(onPlantDetailsClicked = {})
 }
 // endregion

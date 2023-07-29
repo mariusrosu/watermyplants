@@ -15,7 +15,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class SqlGardenDataSource(database: GardenDatabase) : GardenDataSource {
+internal class SqlGardenDataSource(database: GardenDatabase) : GardenDataSource {
 
     private val queries: GardenDatabaseQueries = database.gardenDatabaseQueries
 
@@ -32,7 +32,7 @@ class SqlGardenDataSource(database: GardenDatabase) : GardenDataSource {
             .map(PlantEntity::toDomain)
 
     override suspend fun addPlant(plant: Plant) {
-        queries.insertItem(id = plant.id, name = plant.name)
+        queries.insertItem(name = plant.name)
     }
 
     override suspend fun deletePlan(id: Long) {

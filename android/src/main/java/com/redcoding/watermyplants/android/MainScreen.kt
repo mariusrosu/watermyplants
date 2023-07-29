@@ -17,9 +17,9 @@ internal fun MainScreen() {
         startDestination = ScreenRoutes.Garden.name,
     ) {
         composable(route = ScreenRoutes.Garden.name) {
-            GardenScreen {
+            GardenScreen() /*{
                 navController.navigate(ScreenRoutes.PlantDetails.name)
-            }
+            }*/
         }
         composable(route = ScreenRoutes.PlantDetails.name) {
             PlantDetailsScreen()

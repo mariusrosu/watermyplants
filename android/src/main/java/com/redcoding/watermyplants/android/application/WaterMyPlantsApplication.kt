@@ -1,4 +1,4 @@
-package com.redcoding.watermyplants.android
+package com.redcoding.watermyplants.android.application
 
 import android.app.Application
 import android.content.Context
@@ -11,13 +11,13 @@ import org.koin.dsl.module
 
 class WaterMyPlantsApplication : Application() {
 
+    private val appModule = module {
+        single<Context> { this@WaterMyPlantsApplication }
+        viewModel { GardenViewModel(getGardenStateEntryPoint = get(), addPlantEntryPoint = get()) }
+    }
+
     override fun onCreate() {
         super.onCreate()
-        initKoin(
-            module {
-                single<Context> { this@WaterMyPlantsApplication }
-                viewModel { GardenViewModel(getGardenStateEntryPoint = get()) }
-            }
-        )
+        initKoin(appModule)
     }
 }

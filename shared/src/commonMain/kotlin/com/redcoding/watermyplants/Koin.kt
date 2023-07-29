@@ -1,4 +1,4 @@
-package com.redcoding.watermyplants.garden
+package com.redcoding.watermyplants
 
 import com.redcoding.watermyplants.garden.data.sqldelight.SqlGardenDataSource
 import com.redcoding.watermyplants.garden.domain.GardenDataSource
@@ -21,6 +21,10 @@ fun initKoin(appModule: Module): KoinApplication {
 }
 
 private val coreModule = module {
+
+    single {
+        GardenDatabase(driver = get())
+    }
 
     single<GardenDataSource> {
         SqlGardenDataSource(database = get())

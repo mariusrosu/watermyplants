@@ -2,10 +2,9 @@ package com.redcoding.watermyplants.android
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 
 import com.redcoding.watermyplants.android.garden.GardenViewModel
-import com.redcoding.watermyplants.garden.initKoin
+import com.redcoding.watermyplants.initKoin
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

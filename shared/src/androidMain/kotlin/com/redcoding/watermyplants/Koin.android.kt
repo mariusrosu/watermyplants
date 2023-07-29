@@ -1,9 +1,7 @@
-package com.redcoding.watermyplants.garden
+package com.redcoding.watermyplants
 
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
-
-import com.redcoding.watermyplants.GardenDatabase
 
 import org.koin.core.module.Module
 import org.koin.dsl.module

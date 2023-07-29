@@ -15,7 +15,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class SqlGardenDataSource constructor(database: GardenDatabase) : GardenDataSource {
+class SqlGardenDataSource(database: GardenDatabase) : GardenDataSource {
 
     private val queries: GardenDatabaseQueries = database.gardenDatabaseQueries
 

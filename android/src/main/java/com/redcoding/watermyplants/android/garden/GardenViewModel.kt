@@ -2,13 +2,17 @@ package com.redcoding.watermyplants.android.garden
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.redcoding.watermyplants.garden.domain.GetGardenStateEntryPoint
 import com.redcoding.watermyplants.garden.ui.SharedGardenViewModel
 
-internal class GardenViewModel : ViewModel() {
+class GardenViewModel(
+    getGardenStateEntryPoint: GetGardenStateEntryPoint
+) : ViewModel() {
 
     private val viewModel by lazy {
         SharedGardenViewModel(
-            coroutineScope = viewModelScope
+            getGardenStateEntryPoint = getGardenStateEntryPoint,
+            coroutineScope = viewModelScope,
         )
     }
 

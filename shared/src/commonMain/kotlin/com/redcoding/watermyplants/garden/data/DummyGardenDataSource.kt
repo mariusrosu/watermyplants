@@ -21,7 +21,6 @@ class DummyGardenDataSource : GardenDataSource {
     }
 
     override fun getPlant(id: Long): Flow<Plant> = flow {
-        // TODO: Handle no plant found
         emit(
             plants.first { plant -> plant.id == id }
         )

@@ -34,6 +34,9 @@ kotlin {
 
                 // SQL Delight
                 implementation("app.cash.sqldelight:coroutines-extensions:2.0.0")
+
+                // Koin
+                implementation("io.insert-koin:koin-core:3.2.1")
             }
         }
         val androidMain by getting {

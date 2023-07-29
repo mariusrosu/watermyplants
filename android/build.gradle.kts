@@ -63,4 +63,9 @@ dependencies {
     // Jetpack compose Material3
     val composeMaterialVersion = "1.1.1"
     implementation("androidx.compose.material3:material3:$composeMaterialVersion")
+
+    // Koin
+    val koinAndroidVersion = "3.4.1"
+    implementation("io.insert-koin:koin-android:$koinAndroidVersion")
+    implementation("io.insert-koin:koin-androidx-compose:$koinAndroidVersion")
 }

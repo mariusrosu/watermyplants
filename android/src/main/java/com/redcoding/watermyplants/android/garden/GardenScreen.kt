@@ -10,16 +10,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 
 import com.redcoding.watermyplants.android.uilibrary.components.CheckBoxText
 import com.redcoding.watermyplants.android.uilibrary.components.Page
 import com.redcoding.watermyplants.android.uilibrary.components.Title
 import com.redcoding.watermyplants.garden.ui.GardenUiState
 
+import org.koin.androidx.compose.koinViewModel
+
 @Composable
 internal fun GardenScreen(
-    viewModel: GardenViewModel = viewModel(),
+    viewModel: GardenViewModel = koinViewModel(),
     onPlantDetailsClicked: () -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsState()

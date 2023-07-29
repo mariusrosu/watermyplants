@@ -9,11 +9,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 
 class SharedGardenViewModel(
-    coroutineScope: CoroutineScope? = null
+    getGardenStateEntryPoint: GetGardenStateEntryPoint,
+    coroutineScope: CoroutineScope? = null,
 ) {
     private val viewModelScope = coroutineScope ?: CoroutineScope(Dispatchers.Main)
-
-    private val getGardenStateEntryPoint: GetGardenStateEntryPoint = GetGardenStateEntryPoint()
 
     val state = getGardenStateEntryPoint()
         .stateIn(

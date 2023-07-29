@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 import com.redcoding.watermyplants.android.garden.GardenScreen
+import com.redcoding.watermyplants.android.plantadd.PlantAddScreen
 import com.redcoding.watermyplants.android.plantdetails.PlantDetailsScreen
 
 @Composable
@@ -23,7 +24,10 @@ internal fun MainScreen() {
         composable(route = ScreenRoutes.PlantDetails.name) {
             PlantDetailsScreen()
         }
+        composable(route = ScreenRoutes.PlantAdd.name) {
+            PlantAddScreen()
+        }
     }
 }
 
-enum class ScreenRoutes { Garden, PlantDetails }
+enum class ScreenRoutes { Garden, PlantDetails, PlantAdd }
